@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Confession ❤️</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background: #ffe6ee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Main box */
+        .box {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin: 10px;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .yes {
+            background: #ff4d79;
+            color: white;
+        }
+
+        .no {
+            background: white;
+            color: #ff4d79;
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: absolute;
+            bottom: -50px;
+            font-size: 25px;
+            animation: floatUp 6s linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Custom popup background */
+        .popup-background {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Popup box */
+        .popup {
+            background: white;
+            width: 280px;
+            padding: 30px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: pop 0.25s ease;
+        }
+
+        .popup h2 {
+            color: #ff4d79;
+        }
+
+        .popup p {
+            font-size: 17px;
+        }
+
+        .popup button {
+            background: #ff4d79;
+            color: white;
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(0.6);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hearts -->
+    <div class="heart" style="left:10%; animation-delay:0s;">❤️</div>
+    <div class="heart" style="left:25%; animation-delay:2s;">💕</div>
+    <div class="heart" style="left:40%; animation-delay:4s;">💗</div>
+    <div class="heart" style="left:55%; animation-delay:1s;">❤️</div>
+    <div class="heart" style="left:70%; animation-delay:3s;">💖</div>
+    <div class="heart" style="left:85%; animation-delay:5s;">💕</div>
+
+
+    <!-- Main question -->
+    <div class="box">
+
+        <h1>Can I tell you something? 👀</h1>
+
+        <button class="yes" onclick="yesClicked()">
+            YES ❤️
+        </button>
+
+        <button class="no" onclick="noClicked()">
+            NO 😶
+        </button>
+
+    </div>
+    <div class="popup-background" id="lovePopup">
+
+    <div class="popup">
+
+        <div style="font-size:50px;">❤️</div>
+
+        <h2>I Love You ❤️</h2>
+
+        <p>I just wanted you to know... 💕</p>
+
+        <button onclick="closeLovePopup()">
+            ❤️
+        </button>
+
+    </div>
+
+</div>
+
+    <!-- Custom popup -->
+    <div class="popup-background" id="popup">
+
+        <div class="popup">
+
+            <div style="font-size:40px;">💗</div>
+
+            <h2>Nice try! 😌</h2>
+
+            <p>This button doesn't work ❤️</p>
+
+            <button onclick="closePopup()">
+                Okay 💕
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function yesClicked() {
+            document.getElementById("lovePopup").style.display = 'flex';
+        }
+        
+        function closeLovePopup() {
+            document.getElementById("lovePopup").style.display = "none";
+        }
+
+        function noClicked() {
+            document.getElementById("popup").style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+    </script>
+
+</body>
+</html>
